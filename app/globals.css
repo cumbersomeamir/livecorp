@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* HUD Color System - Medical Stark */
+  --hud-bg-primary: #070A0F;
+  --hud-bg-secondary: #05070C;
+  --hud-panel-glass: rgba(255, 255, 255, 0.05);
+  --hud-line-primary: rgba(120, 180, 255, 0.25);
+  --hud-line-secondary: rgba(255, 255, 255, 0.12);
+  --hud-glow-cyan: #2DE2FF;
+  --hud-glow-teal: #34F5C5;
+  --hud-warning: #FFB020;
+  --hud-critical: #FF3B3B;
+  --hud-text-primary: #EAF0FF;
+  --hud-text-muted: #9AA7C7;
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--hud-bg-primary);
+  color: var(--hud-text-primary);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* HUD Grid Foundation */
+.hud-grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image: 
+    linear-gradient(rgba(120, 180, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 180, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.4;
+}
+
+/* HUD Panel Base */
+.hud-panel {
+  background: var(--hud-panel-glass);
+  border: 1px solid var(--hud-line-secondary);
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hud-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hud-glow-cyan), transparent);
+  opacity: 0.3;
+}
+
+/* Scanning Line Animation */
+@keyframes scan-sweep {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--hud-glow-cyan), transparent);
+  animation: scan-sweep 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Target Acquisition Brackets */
+.hud-brackets {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hud-brackets::before,
+.hud-brackets::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--hud-line-primary);
+}
+
+.hud-brackets::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.hud-brackets::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+/* Radial Dial */
+.radial-dial {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--hud-text-primary);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.text-muted {
+  color: var(--hud-text-muted);
+}
+
+.text-glow-cyan {
+  color: var(--hud-glow-cyan);
+  text-shadow: 0 0 10px rgba(45, 226, 255, 0.5);
+}
+
+.text-glow-teal {
+  color: var(--hud-glow-teal);
+  text-shadow: 0 0 10px rgba(52, 245, 197, 0.5);
+}
+
+/* Microcopy System */
+.microcopy {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--hud-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.status-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  border: 1px solid var(--hud-line-primary);
+  border-radius: 2px;
+  color: var(--hud-glow-teal);
+  background: rgba(52, 245, 197, 0.05);
+}
+
+/* Section Transitions */
+.section-transition {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .scan-line {
+    display: none;
+  }
+  
+  .oscilloscope-ring,
+  [style*="animation"] {
+    animation: none !important;
+  }
+}
+
+/* Accessibility - High Contrast */
+@media (prefers-contrast: high) {
+  :root {
+    --hud-line-primary: rgba(120, 180, 255, 0.6);
+    --hud-line-secondary: rgba(255, 255, 255, 0.4);
+    --hud-text-muted: #C4D1E8;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--hud-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hud-line-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hud-glow-cyan);
+}
+
