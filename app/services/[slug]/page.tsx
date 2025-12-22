@@ -8,6 +8,10 @@ const services = [
   'urinalysis-infection',
   'sleep-fatigue-screening',
   'imaging-gateway',
+  'acute-deterioration-sepsis',
+  'metabolic-chronic-risk',
+  'neurological-triage',
+  'test-ordering-optimization',
 ];
 
 export async function generateStaticParams() {

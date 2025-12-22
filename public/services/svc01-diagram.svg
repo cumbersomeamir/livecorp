@@ -1,0 +1,50 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="diagGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2DE2FF;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#34F5C5;stop-opacity:0.2" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="#05070C" />
+  <rect width="600" height="400" fill="url(#diagGrad1)" />
+  <!-- Pipeline Flow -->
+  <path d="M 50 200 L 550 200" stroke="#2DE2FF" stroke-width="2" fill="none" opacity="0.4" />
+  <!-- Processing Nodes -->
+  <g>
+    <circle cx="100" cy="200" r="25" fill="#2DE2FF" opacity="0.2" />
+    <circle cx="100" cy="200" r="15" fill="#34F5C5" opacity="0.4" />
+    <text x="100" y="205" text-anchor="middle" fill="#2DE2FF" font-family="monospace" font-size="8">1</text>
+    <text x="100" y="240" text-anchor="middle" fill="#9AA7C7" font-family="monospace" font-size="8">Capture</text>
+  </g>
+  <g>
+    <circle cx="200" cy="200" r="25" fill="#2DE2FF" opacity="0.2" />
+    <circle cx="200" cy="200" r="15" fill="#34F5C5" opacity="0.4" />
+    <text x="200" y="205" text-anchor="middle" fill="#2DE2FF" font-family="monospace" font-size="8">2</text>
+    <text x="200" y="240" text-anchor="middle" fill="#9AA7C7" font-family="monospace" font-size="8">Filter</text>
+  </g>
+  <g>
+    <circle cx="300" cy="200" r="25" fill="#2DE2FF" opacity="0.2" />
+    <circle cx="300" cy="200" r="15" fill="#34F5C5" opacity="0.4" />
+    <text x="300" y="205" text-anchor="middle" fill="#2DE2FF" font-family="monospace" font-size="8">3</text>
+    <text x="300" y="240" text-anchor="middle" fill="#9AA7C7" font-family="monospace" font-size="8">Analyze</text>
+  </g>
+  <g>
+    <circle cx="400" cy="200" r="25" fill="#2DE2FF" opacity="0.2" />
+    <circle cx="400" cy="200" r="15" fill="#34F5C5" opacity="0.4" />
+    <text x="400" y="205" text-anchor="middle" fill="#2DE2FF" font-family="monospace" font-size="8">4</text>
+    <text x="400" y="240" text-anchor="middle" fill="#9AA7C7" font-family="monospace" font-size="8">Fuse</text>
+  </g>
+  <g>
+    <rect x="500" y="175" width="40" height="50" fill="#2DE2FF" opacity="0.3" rx="4" />
+    <text x="520" y="200" text-anchor="middle" fill="#2DE2FF" font-family="monospace" font-size="8">5</text>
+    <text x="520" y="240" text-anchor="middle" fill="#9AA7C7" font-family="monospace" font-size="8">Output</text>
+  </g>
+  <!-- Connection Lines -->
+  <path d="M 125 200 L 175 200" stroke="#2DE2FF" stroke-width="1.5" fill="none" opacity="0.5" />
+  <path d="M 225 200 L 275 200" stroke="#2DE2FF" stroke-width="1.5" fill="none" opacity="0.5" />
+  <path d="M 325 200 L 375 200" stroke="#2DE2FF" stroke-width="1.5" fill="none" opacity="0.5" />
+  <path d="M 425 200 L 500 200" stroke="#2DE2FF" stroke-width="1.5" fill="none" opacity="0.5" />
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" fill="#2DE2FF" font-family="monospace" font-size="12" font-weight="bold">SIGNAL PROCESSING PIPELINE</text>
+</svg>
+

@@ -1,0 +1,10 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#05070C" />
+  <path d="M 50 200 L 550 200" stroke="#2DE2FF" stroke-width="2" fill="none" opacity="0.4" />
+  <circle cx="150" cy="200" r="20" fill="#2DE2FF" opacity="0.3" />
+  <circle cx="300" cy="200" r="20" fill="#34F5C5" opacity="0.3" />
+  <circle cx="450" cy="200" r="20" fill="#2DE2FF" opacity="0.3" />
+  <path d="M 170 200 L 280 200" stroke="#2DE2FF" stroke-width="1.5" opacity="0.5" />
+  <path d="M 320 200 L 430 200" stroke="#2DE2FF" stroke-width="1.5" opacity="0.5" />
+  <text x="300" y="30" text-anchor="middle" fill="#2DE2FF" font-family="monospace" font-size="12">PROCESSING FLOW</text>
+</svg>

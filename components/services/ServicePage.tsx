@@ -8,6 +8,10 @@ import HematologyService from './services/HematologyService';
 import UrinalysisService from './services/UrinalysisService';
 import SleepService from './services/SleepService';
 import ImagingService from './services/ImagingService';
+import AcuteDeteriorationService from './services/AcuteDeteriorationService';
+import MetabolicChronicService from './services/MetabolicChronicService';
+import NeurologicalTriageService from './services/NeurologicalTriageService';
+import TestOrderingOptimizationService from './services/TestOrderingOptimizationService';
 
 const serviceComponents: Record<string, React.ComponentType> = {
   'cardiac-pre-screening': CardiacService,
@@ -16,6 +20,10 @@ const serviceComponents: Record<string, React.ComponentType> = {
   'urinalysis-infection': UrinalysisService,
   'sleep-fatigue-screening': SleepService,
   'imaging-gateway': ImagingService,
+  'acute-deterioration-sepsis': AcuteDeteriorationService,
+  'metabolic-chronic-risk': MetabolicChronicService,
+  'neurological-triage': NeurologicalTriageService,
+  'test-ordering-optimization': TestOrderingOptimizationService,
 };
 
 export default function ServicePage({ slug }: { slug: string }) {

@@ -2,15 +2,28 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function HUDNavbar() {
   const [scrollY, setScrollY] = useState(0);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const navItems = [
+    { href: '/', label: 'HOME' },
+    { href: '/services', label: 'SERVICES' },
+    { href: '/trust', label: 'TRUST' },
+    { href: '/clinics', label: 'CLINICS' },
+    { href: '/patients', label: 'PATIENTS' },
+    { href: '/developers', label: 'DEVELOPERS' },
+    { href: '/contact', label: 'CONTACT' },
+  ];
 
   return (
     <motion.nav
@@ -22,29 +35,36 @@ export default function HUDNavbar() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <div className="mono text-sm font-semibold text-hud-glow-cyan">
+            <Link href="/" className="mono text-sm font-semibold text-hud-glow-cyan hover:text-hud-glow-teal transition-colors">
               LIVE CORP
-            </div>
-            <div className="hidden md:flex items-center gap-6">
-              <a href="#problem" className="mono text-xs text-hud-text-muted hover:text-hud-text-primary transition-colors">
-                PROBLEM
-              </a>
-              <a href="#philosophy" className="mono text-xs text-hud-text-muted hover:text-hud-text-primary transition-colors">
-                PHILOSOPHY
-              </a>
-              <a href="#engine" className="mono text-xs text-hud-text-muted hover:text-hud-text-primary transition-colors">
-                ENGINE
-              </a>
-              <a href="#wings" className="mono text-xs text-hud-text-muted hover:text-hud-text-primary transition-colors">
-                WINGS
-              </a>
-              <a href="#safety" className="mono text-xs text-hud-text-muted hover:text-hud-text-primary transition-colors">
-                SAFETY
-              </a>
+            </Link>
+            <div className="hidden lg:flex items-center gap-4">
+              {navItems.map((item) => {
+                const isActive = pathname === item.href || (item.href === '/' && pathname === '/');
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`mono text-xs transition-colors ${
+                      isActive
+                        ? 'text-hud-glow-cyan'
+                        : 'text-hud-text-muted hover:text-hud-text-primary'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
           </div>
-          <div className="mono text-xs text-hud-text-muted">
+          <div className="mono text-xs text-hud-text-muted hidden md:block">
             {Math.floor(scrollY)}px
+          </div>
+          {/* Mobile menu button */}
+          <div className="lg:hidden">
+            <button className="mono text-xs text-hud-text-muted">
+              MENU
+            </button>
           </div>
         </div>
       </div>
