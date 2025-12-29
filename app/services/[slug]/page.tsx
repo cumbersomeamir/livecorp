@@ -18,11 +18,13 @@ export async function generateStaticParams() {
   return services.map((slug) => ({ slug }));
 }
 
-export default function ServiceSlugPage({ params }: { params: { slug: string } }) {
-  if (!services.includes(params.slug)) {
+export default async function ServiceSlugPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  
+  if (!services.includes(slug)) {
     notFound();
   }
 
-  return <ServicePage slug={params.slug} />;
+  return <ServicePage slug={slug} />;
 }
 

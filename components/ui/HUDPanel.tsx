@@ -8,7 +8,8 @@ interface HUDPanelProps {
   className?: string;
   withBrackets?: boolean;
   withScanline?: boolean;
-  glow?: 'cyan' | 'teal' | 'none';
+  glow?: 'cyan' | 'teal' | 'red' | 'none';
+  onClick?: () => void;
 }
 
 export default function HUDPanel({
@@ -17,8 +18,13 @@ export default function HUDPanel({
   withBrackets = false,
   withScanline = false,
   glow = 'none',
+  onClick,
 }: HUDPanelProps) {
-  const glowClass = glow === 'cyan' ? 'shadow-hud-glow' : glow === 'teal' ? 'shadow-hud-glow-teal' : '';
+  const glowClass = 
+    glow === 'cyan' ? 'shadow-hud-glow' : 
+    glow === 'teal' ? 'shadow-hud-glow-teal' : 
+    glow === 'red' ? 'shadow-hud-glow-red' : 
+    '';
   
   return (
     <motion.div
@@ -27,6 +33,7 @@ export default function HUDPanel({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
+      onClick={onClick}
     >
       {withScanline && (
         <div className="scan-line" aria-hidden="true" />

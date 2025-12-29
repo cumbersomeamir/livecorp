@@ -43,6 +43,7 @@ module.exports = {
       boxShadow: {
         'hud-glow': '0 0 20px rgba(45, 226, 255, 0.3)',
         'hud-glow-teal': '0 0 20px rgba(52, 245, 197, 0.3)',
+        'hud-glow-red': '0 0 20px rgba(255, 59, 59, 0.3)',
       },
       animation: {
         'scan-sweep': 'scan-sweep 4s ease-in-out infinite',
